@@ -1,0 +1,22 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import Profile from '../views/Profile.vue'
+import Portfolio from '../views/Portfolio.vue'
+import Contact from '../views/Contact.vue'
+import About from '../views/About.vue'
+
+const routes = [
+  { path: '/', name: 'Home', component: Home },
+  { path: '/profile', name: 'Profile', component: Profile },
+  { path: '/portfolio', name: 'Portfolio', component: Portfolio },
+  { path: '/about', name: 'About', component: About },
+  { path: '/contact', name: 'Contact', component: Contact },
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+  scrollBehavior() { return { top: 0 } }
+})
+
+export default router
