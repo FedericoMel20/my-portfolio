@@ -1,7 +1,12 @@
 <template>
   <main class="view home-view hero-centered">
+    <!-- Visible curved background fixed to bottom-right -->
+    <div class="bg-curve" aria-hidden="true"></div>
+
     <section class="hero-area">
       <div class="hero-content">
+
+        <!-- LEFT SIDE: NAME -->
         <div class="hero-text">
           <div class="hero-name-large">
             <span class="first-name">{{ firstName }}</span>
@@ -10,6 +15,7 @@
           <p class="hero-subtitle">Full Stack Developer</p>
         </div>
 
+        <!-- RIGHT SIDE: PORTRAIT + DESCRIPTION -->
         <div class="hero-portrait">
           <div class="portrait-frame big">
             <div class="portrait-inner">
@@ -17,7 +23,14 @@
             </div>
             <div class="portrait-ornament"></div>
           </div>
+
+          <!-- NEW TEXT UNDER PHOTO -->
+          <div class="hero-description">
+            Informatics Engineering Student <br />
+            Nusa Putra University
+          </div>
         </div>
+
       </div>
     </section>
   </main>
@@ -25,12 +38,13 @@
 
 <script>
 import avatarImg from '../assets/image_1.jpg'
+
 export default {
   name: 'Home',
   data() {
     return {
-      firstName: 'Mambuna',
-      lastName: 'Bojang',
+      firstName: 'MAMBUNA',
+      lastName: 'BOJANG',
       avatar: avatarImg
     }
   }
@@ -38,32 +52,276 @@ export default {
 </script>
 
 <style scoped>
-.hero-centered { display:flex; justify-content:center; align-items:center; padding:48px 18px; }
+/* ---------- quick tweakable variables ---------- */
+:root {
+  --corner-left: 12px;     /* change to 6px / 20px to tune corner mark inset */
+  --leaf: #19d18b;
+  --leaf-strong: #00c76b;
+}
 
-.hero-area { width:100%; max-width:1100px; }
+/* -------------------------
+   Layout & hero content
+   ------------------------- */
 
-.hero-content { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.hero-centered {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:48px 18px;
+  position: relative; /* important for content stacking */
+  isolation: isolate; /* ensure stacking context for fixed bg */
+  overflow: visible;
+}
+
+.hero-area {
+  width:100%;
+  max-width:1100px;
+  z-index: 3; /* place above background */
+}
+
+.hero-content {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  position: relative;
+}
 
 /* Name block */
-.hero-text { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding-left:18px; }
-.hero-name-large { color: #fff; font-weight:900; font-size:4.2rem; line-height:0.9; letter-spacing:1px; }
-.hero-name-large .first-name { display:block; }
-.hero-name-large .last-name { display:block; margin-left: 3ch; /* starts roughly at 4th char of first name */ }
-.hero-subtitle { margin-top:12px; color:var(--accent); font-weight:700; font-size:1.05rem; }
+.hero-text {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding-left:18px;
+}
+
+.hero-name-large {
+  color: #fff;
+  font-weight: 900;
+  font-size: 5rem;
+  line-height: 0.9;
+  letter-spacing: 1.2px;
+}
+
+.hero-name-large .first-name { display: block; }
+
+.hero-name-large .last-name {
+  display: block;
+  margin-left: 4ch; /* last name starts under 5th char of first name */
+}
+
+.hero-subtitle {
+  margin-top: 14px;
+  margin-left: 4ch;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.6px;
+}
 
 /* Portrait */
-.hero-portrait { width:420px; display:flex; justify-content:center; align-items:center; }
-.portrait-frame.big { width:420px; height:420px; border-radius:20px; padding:20px; }
-.portrait-inner { width:300px; height:300px; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at 20% 20%, rgba(25,209,139,0.06), transparent 25%); border:1px solid rgba(25,209,139,0.08); transition: transform .38s; }
-.portrait-inner .avatar { width:100%; height:100%; object-fit:cover; }
-.portrait-frame.big:hover .portrait-inner { transform: scale(1.04) rotate(-1.6deg); box-shadow: 0 30px 100px rgba(0,200,150,0.06); }
+.hero-portrait {
+  width:420px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position: relative;
+}
 
-/* Responsiveness */
+.portrait-frame.big {
+  width:420px;
+  height:420px;
+  border-radius:20px;
+  padding:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+.portrait-inner {
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(circle at 20% 20%, rgba(25,209,139,0.06), transparent 25%);
+  border:1px solid rgba(25,209,139,0.08);
+  transition: transform .38s;
+}
+
+.portrait-inner .avatar {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.portrait-frame.big:hover .portrait-inner {
+  transform: scale(1.04) rotate(-1.6deg);
+  box-shadow: 0 30px 100px rgba(0,200,150,0.06);
+}
+
+/* hero description */
+.hero-description {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  transition: all .25s ease;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.hero-description:hover {
+  color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(25,209,139,0.35),
+              0 0 6px rgba(25,209,139,0.25) inset;
+  border: 1px solid rgba(25,209,139,0.35);
+  cursor: default;
+}
+
+/* -------------------------
+   Curved bottom-right background (fixed & visible)
+   ------------------------- */
+
+/* Simple, guaranteed-visible curved background fixed to viewport bottom-right */
+.bg-curve {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 50vw;        /* visible width - tweak as desired */
+  height: 45vh;       /* height of the sweep */
+  z-index: 1;         /* behind hero content (z-index smaller than .hero-area) */
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at 80% 80%,
+    rgba(25, 209, 139, 0.36) 0%,
+    rgba(10, 80, 55, 0.40) 30%,
+    rgba(6, 50, 40, 0.32) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  /* soft rounded sweep */
+  border-bottom-left-radius: 60%;
+  box-shadow: inset -120px -20px 160px rgba(0, 120, 80, 0.12), 0 30px 120px rgba(4,120,86,0.06);
+  filter: saturate(112%) blur(0.1px);
+  transform: translateZ(0);
+  opacity: 0.95;
+}
+
+/* Smaller screens adjustments for the curve */
+@media (max-width:1200px) {
+  .bg-curve {
+    width: 70vw;
+    height: 42vh;
+    box-shadow: inset -100px -10px 120px rgba(0,120,80,0.10), 0 20px 100px rgba(4,120,86,0.05);
+  }
+}
+
 @media (max-width:980px) {
-  .hero-content { flex-direction:column-reverse; gap:18px; align-items:center; text-align:center; }
-  .hero-text { align-items:center; padding-left:0; }
-  .hero-name-large { font-size:3rem; }
-  .portrait-frame.big { width:280px; height:280px; padding:14px; }
-  .portrait-inner { width:200px; height:200px; }
+  .bg-curve {
+    right: -8vw;
+    bottom: -6vh;
+    width: 120vw;
+    height: 38vh;
+    opacity: 0.85;
+  }
+
+  .hero-content { gap: 18px; }
+  .hero-portrait { width: 320px; }
+  .portrait-frame.big { width: 320px; height: 320px; padding: 16px; }
+  .portrait-inner { width: 220px; height: 220px; }
+  .hero-name-large { font-size: 3.2rem; }
+}
+
+/* -------------------------
+   Corner mark: WEB / PROFILE
+   ------------------------- */
+
+.corner-mark {
+  position: fixed;
+  left: var(--corner-left);
+  bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  z-index: 5; /* above curve and content */
+  pointer-events: auto;
+  user-select: none;
+}
+
+.vertical-web {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  transform-origin: left bottom;
+}
+
+.vertical-web span {
+  display: block;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 0.9;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  transition: color .25s ease, text-shadow .25s ease;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.horizontal-profile {
+  font-weight: 900;
+  font-size: 3.8rem;
+  color: #ffffff;
+  white-space: nowrap;
+  align-self: center;
+  margin-left: -6px;
+  transition: color .25s ease, text-shadow .25s ease, transform .25s ease;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* animated color shift */
+@keyframes colorShift {
+  0%   { color: #ffffff; text-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+  25%  { color: var(--leaf); text-shadow: 0 10px 30px rgba(25,209,139,0.10); }
+  50%  { color: #ffffff; text-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+  75%  { color: var(--leaf); text-shadow: 0 10px 30px rgba(25,209,139,0.10); }
+  100% { color: #ffffff; text-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+}
+
+@keyframes hoverPulse {
+  0%   { color: var(--leaf-strong); text-shadow: 0 0 28px rgba(0,199,110,0.55); transform: translateY(-2px); }
+  50%  { color: #ffffff; text-shadow: 0 0 10px rgba(255,255,255,0.12); transform: translateY(-6px); }
+  100% { color: var(--leaf-strong); text-shadow: 0 0 28px rgba(0,199,110,0.55); transform: translateY(-2px); }
+}
+
+/* staggered animate letters */
+.vertical-web span:nth-child(1) { animation: colorShift 3.2s linear infinite; animation-delay: 0s; }
+.vertical-web span:nth-child(2) { animation: colorShift 3.2s linear infinite; animation-delay: .3s; }
+.vertical-web span:nth-child(3) { animation: colorShift 3.2s linear infinite; animation-delay: .6s; }
+.horizontal-profile { animation: colorShift 3.6s linear infinite; animation-delay: 0.9s; }
+
+/* hover stronger pulse */
+.corner-mark:hover .vertical-web span,
+.corner-mark:hover .horizontal-profile {
+  animation: hoverPulse 1.6s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* responsive adjustments */
+@media (max-width:980px) {
+  .corner-mark { left: calc(var(--corner-left) + 6px); bottom: 12px; }
+  .vertical-web span { font-size: 2.2rem; }
+  .horizontal-profile { font-size: 2rem; margin-left: -4px; }
+  .hero-name-large { font-size: 3rem; }
 }
 </style>

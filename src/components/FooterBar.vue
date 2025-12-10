@@ -10,7 +10,6 @@
           </div>
           <div class="role">Full Stack Developer</div>
         </div>
-        <div class="copyright">© {{ year }} DIGITAL CANVAS</div>
       </div>
 
       <!-- Column 2: Connect -->
@@ -58,13 +57,11 @@ export default {
   data() {
     return {
       year: new Date().getFullYear(),
-      // update these to your real links if needed
-      firstName: 'Mambuna',
-      lastName: 'Bojang',
+      firstName: 'MAMBUNA',
+      lastName: 'BOJANG',
       email: 'federiconacamora2099@gmail.com',
       linkedin: 'https://www.linkedin.com/in/mambuna-bojang-b800b72a6',
       github: 'https://github.com/FedericoMel20',
-      // if you put CV in public folder:
       cvLink: '/CV-Mambuna.pdf',
       icons: {
         linkedin: `<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.6 4.06 5.5 2.96 5.5 1.86 5.5.94 4.6.94 3.5.94 2.4 1.86 1.5 2.96 1.5 4.06 1.5 4.98 2.4 4.98 3.5zM.9 8.98h4.12V24H.9V8.98zM9.9 8.98h3.95v2.02h.06c.55-1.04 1.9-2.14 3.9-2.14 4.17 0 4.94 2.75 4.94 6.33V24h-4.12v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24H9.9V8.98z"/></svg>`,
@@ -79,11 +76,22 @@ export default {
 
 <style scoped>
 .site-footer {
-  border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+  border-top: 1px solid rgba(25,209,139,0.15);
+  background: linear-gradient(
+      180deg,
+      rgba(0, 30, 22, 0.35),
+      rgba(0, 45, 32, 0.25),
+      rgba(0, 60, 42, 0.20)
+  );
+  
+  /* soft green inner glow */
+  box-shadow: inset 0 0 35px rgba(25,209,139,0.08);
+
   padding: 28px;
   color: var(--muted);
+  backdrop-filter: blur(4px);
 }
+
 .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
