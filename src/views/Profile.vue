@@ -68,7 +68,7 @@
               <span class="tech-item">NumPY</span>
               <span class="tech-item">React-Native</span>
               <span class="tech-item">MySQL</span>
-              <span class="tech-item">Linux</span>
+              <span class="tech-item">Ubuntu</span>
             </div>
           </div>
         </div>

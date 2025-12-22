@@ -43,7 +43,7 @@
         <h4>SITEMAP</h4>
         <nav class="sitemap-list">
           <router-link class="sitemap-link" to="/">Home</router-link>
-          <router-link class="sitemap-link" to="/about">About</router-link>
+          <router-link class="sitemap-link" to="/profile">About</router-link>
           <router-link class="sitemap-link" to="/portfolio">Portfolio</router-link>
         </nav>
       </div>
