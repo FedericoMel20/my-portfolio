@@ -35,14 +35,15 @@
 
     <!-- RIGHT SIDE — LET'S TALK BUTTON -->
     <div class="header-right">
-      <a 
+      <button 
         class="talk-btn" 
-        :href="whatsappLink" 
-        target="_blank" 
-        rel="noopener noreferrer"
+        @click="showTalkModal = true"
+        aria-haspopup="dialog"
       >
         Contact Me
-      </a>
+      </button>
+
+      <TalkModal v-if="showTalkModal" @close="showTalkModal = false" />
     </div>
 
   </header>
@@ -50,9 +51,11 @@
 
 <script>
 import { useRouter } from 'vue-router'
+import TalkModal from './TalkModal.vue'
 
 export default {
   name: "HeaderBar",
+  components: { TalkModal },
 
   setup() {
     const router = useRouter()
@@ -63,7 +66,7 @@ export default {
 
   data() {
     return {
-      whatsappLink: "https://wa.me/628567219006?text=Hello%20Mambuna,%20I%20would%20like%20to%20talk%20to%20you!",
+      showTalkModal: false,
     }
   }
 }
