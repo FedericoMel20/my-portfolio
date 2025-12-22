@@ -1,3 +1,34 @@
+/*
+  Webfont instructions:
+  - Add your font files to `public/fonts/` (e.g. StingerFit.woff2, SegoeFluentIcons.woff2).
+  - The @font-face declarations below reference those files and provide fallbacks.
+  - If you prefer CDN-hosted fonts, replace the `src` urls with the CDN ones.
+*/
+
+@font-face {
+  font-family: 'Stinger Fit';
+  src: local('Stinger Fit'), url('/fonts/StingerFit.woff2') format('woff2'), url('/fonts/StingerFit.woff') format('woff');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Segoe Fluent Icons';
+  src: local('Segoe Fluent Icons'), url('/fonts/SegoeFluentIcons.woff2') format('woff2'), url('/fonts/SegoeFluentIcons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  src: local('Work Sans'), url('/fonts/WorkSans.woff2') format('woff2'), url('/fonts/WorkSans.woff') format('woff');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{
   --bg:#071018;
   --panel:#071820;

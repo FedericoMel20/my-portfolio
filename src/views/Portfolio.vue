@@ -68,7 +68,7 @@
 
         <div class="caption-right">
           <p class="desc">{{ activeItem.desc }}</p>
-          <span class="cta">View details →</span>
+          <span class="cta" role="button">Click to see Item</span>
         </div>
       </a>
     </transition>
@@ -134,12 +134,12 @@ export default {
           id: 4,
           tab: "Certificates",
           type: "CERTIFICATE",
-          title: "Introduction to AI",
+          title: "Introduction To AI",
           subtitle: "Coursera - IBM",
-          tags: ["Web", "Problem Solving"],
-          desc: "Pengembangan aplikasi web dan eksplorasi teknologi baru.",
+          tags: ["Machine Learning Basics", "AI Fundamentals"],
+          desc: "Gained a foundational understanding of artificial intelligence, including machine learning, deep learning, natural language processing, and real-world AI applications. Explored ethical considerations and the impact of AI across industries.",
           avatar: "../src/assets/intro_ai.jpeg",
-          link: "#",
+          link: "https://coursera.org/share/207663c8ce855f51d7b5225d3493b003",
         },
         {
           id: 5,
@@ -147,32 +147,76 @@ export default {
           type: "CERTIFICATE",
           title: "Python for Data Science, AI and Development",
           subtitle: "Coursera - IBM",
-          tags: ["Web", "Problem Solving"],
-          desc: "Pengembangan aplikasi web dan eksplorasi teknologi baru.",
+          tags: ["Python", "NumPY", "Pandas", "Data Science"],
+          desc: "Learned Python fundamentals and applied them to data science and AI workflows, including data structures, control flow, functions, and libraries commonly used in analytics and machine learning.",
           avatar: "../src/assets/python_ai.jpeg",
-          link: "#",
+          link: "https://coursera.org/share/c25a11e8455603f25fa2169b77571a3c",
         },
         {
           id: 6,
           tab: "Certificates",
           type: "CERTIFICATE",
           title: "Web Development",
-          subtitle: "Sololearn - IBM",
-          tags: ["Web", "Problem Solving"],
-          desc: "Pengembangan aplikasi web dan eksplorasi teknologi baru.",
+          subtitle: "Sololearn",
+          tags: ["HTML", "JavaScript", "CSS"],
+          desc: "Learned the fundamentals of web development with a focus on HTML, CSS, and responsive design principles for building clean and functional websites.",
           avatar: "../src/assets/web_dev.jpeg",
-          link: "#",
+          link: "https://www.sololearn.com/certificates/CC-EB5KFMAF",
         },
         {
           id: 7,
           tab: "Certificates",
           type: "CERTIFICATE",
           title: "Generative AI: Prompt Engineering Basics",
-          subtitle: "Sololearn - IBM",
-          tags: ["Web", "Problem Solving"],
-          desc: "Pengembangan aplikasi web dan eksplorasi teknologi baru.",
+          subtitle: "IBM - Coursera",
+          tags: ["Generative AI", "Prompt Engineering"],
+          desc: "Learned the fundamentals of generative AI and f  ocused on crafting precise prompts to enhance accuracy, control, and reliability in generative AI systems.",
           avatar: "../src/assets/prompt_engineering.jpg",
-          link: "#",
+          link: "https://coursera.org/share/0475a990a2554fa735cedffb741a6681",
+        },
+        {
+          id: 8,
+          tab: "Certificates",
+          type: "CERTIFICATE",
+          title: "Python Developer",
+          subtitle: "Core Python Programming & Problem Solving",
+          tags: ["Python", "Problem Solving", "OOP"],
+          desc: "Developed a solid understanding of Python programming, including variables, control structures, functions, and practical problem-solving techniques through hands-on exercises.",
+          avatar: "../src/assets/python_dev.png",
+          link: "https://www.sololearn.com/certificates/CC-WKIANOOI",
+        },
+        {
+          id: 9,
+          tab: "Certificates",
+          type: "CERTIFICATE",
+          title: "Generative AI: Introduction and Applications",
+          subtitle: "Generative Models and Practical Applications",
+          tags: ["Deep Learning", "ChatGPT", "Prototyping"],
+          desc: "Gained foundational knowledge of generative AI concepts, models, and real-world applications, including how generative systems create text, images, and data-driven outputs.",
+          avatar: "../src/assets/gen_ai.jpeg",
+          link: "https://coursera.org/share/290d1b8cffa71c8a52abc0856455e181",
+        },
+        {
+          id: 10,
+          tab: "Certificates",
+          type: "CERTIFICATE",
+          title: "Python Intermediate",
+          subtitle: "Data Structures & Logic in Python",
+          tags: ["Python", "Data Structures", "OOP"],
+          desc: "Strengthened intermediate Python skills, focusing on data structures, functions, modules, and logical problem-solving through hands-on coding exercises.",
+          avatar: "../src/assets/python_int.jpeg",
+          link: "https://www.sololearn.com/certificates/CC-GU7G2K5S",
+        },
+        {
+          id: 9,
+          tab: "Certificates",
+          type: "CERTIFICATE",
+          title: "TOEFL iBT",
+          subtitle: "International English Proficiency Assessment",
+          tags: ["English", "Communication", "Academic Writing"],
+          desc: "Certified academic English proficiency for global academic and professional contexts.",
+          avatar: "../src/assets/toefl.jpeg",
+          link: "https://drive.google.com/file/d/1FEc69s7rmeJyfVilBxAdWRCb1JjcOzEM/view?usp=sharing",
         },
 
       ],
@@ -392,35 +436,175 @@ export default {
 
 
 /* ================= CAPTION ================= */
-.caption {
-  margin-top: 28px;
-  width: min(900px, 92%);
-  padding: 14px 22px;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.86), rgba(0,0,0,0.72));
+/*
+  Caption behavior:
+  - Fade in approx. 2s after a card becomes active (enter uses 2s delay).
+  - Fade out immediately when the card goes inactive.
+  - Layout is two columns: left (type/title/subtitle/tags), right (description).
+*/
+.caption {  /* remove link underlines from caption content */
+  text-decoration: none;  position: absolute;
+  left: 50%;
+  top: 70%;
+  transform: translate(-50%, -55%); /* slightly up from center */
+  width: min(600px, 82%);
+  min-height: 72px; /* reduced vertical size */
+  padding: 12px 18px 40px; /* bottom space for CTA */
+  border-radius: 12px;
+
+  background: linear-gradient(180deg, rgba(0,0,0,0.92), rgba(0,0,0,0.78));
   border: 1px solid rgba(255,255,255,0.06);
   backdrop-filter: blur(10px);
-  display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 18px;
-  text-decoration: none;
-  color: #fff;
-  z-index: 999;
-  align-items: center;
-} 
 
-.caption h2 {
-  font-size: 1.6rem;
-  margin: 4px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  color: #fff;
+  z-index: 1300;
+  align-items: start; 
 }
 
-.caption .cta {
-  color: var(--accent);
-  font-weight: 700;
-  margin-top: 10px;
-  display: inline-block;
+/* Enter/leave transitions (Vue transition wrapper uses `caption` name) */
+.caption-enter-active {
+  transition: opacity .5s ease 0.5s, transform .5s cubic-bezier(.22,.9,.32,1) 2s;
+}
+.caption-leave-active {
+  transition: opacity .22s ease 0s, transform .22s ease 0s;
+}
+.caption-enter-from { opacity: 0; transform: translate(-50%, -50%) translateY(8px) scale(.998); }
+.caption-enter-to   { opacity: 1; transform: translate(-50%, -55%) translateY(0) scale(1); }
+.caption-leave-to   { opacity: 0; transform: translate(-50%, -55%) translateY(8px) scale(.998); }
+
+/* Left column (metadata) */
+.caption-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6px 10px;
+  text-align: left;
+  gap: 6px;
+}
+
+.caption .type {
+  color: #19d18b; /* alive green */
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  font-size: 0.72rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.caption h2 {
+  font-size: 2rem; /* larger, commanding */
+  margin: 0 0 6px 0;
+  font-weight: 900;
+  line-height: 1.02;
+  /* primary title font - ensure 'Stinger Fit' is available locally or via webfont */
+  font-family: 'Stinger Fit', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: #ffffff;
+  letter-spacing: -0.6px;
+}
+
+
+.caption .subtitle {
   font-size: 0.95rem;
-} 
+  font-weight: 300; /* lighter modern feel */
+  color: rgba(255,255,255,0.68);
+  margin: 0 0 8px 0;
+  font-family: 'Courier New', Courier, monospace; /* retro/techy feel */
+}
+
+
+.caption .tags {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.caption .tags span {
+  background: transparent;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.95);
+  font-family: 'Segoe Fluent Icons', 'Segoe UI', system-ui, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+/* Right column (description) */
+.caption-right { padding: 6px 8px; }
+.caption .desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.95);
+  font-family: 'Work Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-weight: 400;
+  line-height: 1.36;
+  margin: 0;
+  text-align: left;
+}
+
+/* CTA bottom-right */
+.caption .cta {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  color: #00ffb8;
+  font-weight: 900;
+  font-size: 0.98rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .18s ease, color .12s ease;
+}
+.caption:hover .cta { transform: translateY(-3px); box-shadow: 0 6px 26px rgba(0,255,170,0.25), 0 0 18px rgba(0,255,170,0.18); color: #ccfff2 }
+
+/* Corner glows - kept from previous design */
+.caption:hover {
+  box-shadow: 0 14px 48px rgba(25,209,139,0.12);
+  border-color: rgba(25,209,139,0.98);
+}
+.caption:hover::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at left top, rgba(25,209,139,0.98), rgba(25,209,139,0) 55%);
+  border-radius: 12px;
+}
+.caption:hover::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at right top, rgba(25,209,139,0.98), rgba(25,209,139,0) 55%);
+  border-radius: 12px;
+}
+.caption:hover .corner-bottom-left {
+  content: '';
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at left bottom, rgba(25,209,139,0.98), rgba(25,209,139,0) 55%);
+  border-radius: 12px;
+}
+.caption:hover .corner-top-right {
+  content: '';
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at right bottom, rgba(25,209,139,0.98), rgba(25,209,139,0) 55%);
+  border-radius: 12px;
+}
 
 /* ================= ARROWS ================= */
 .nav-arrow {
