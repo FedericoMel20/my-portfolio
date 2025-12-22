@@ -127,7 +127,7 @@ export default {
           subtitle: "Self-Employed",
           tags: ["Web", "Data Entry", "Management"],
           desc: "Continuously working on self & freelance projects including simple contracts in UPWORK to enhance my practical skills and gain real-world experience.",
-          avatar: "../src/assets/self.jpeg",
+          avatar: '../src/assets/self.jpeg',
           link: "https://github.com/FedericoMel20",
         },
         {
