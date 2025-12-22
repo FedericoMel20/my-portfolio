@@ -105,7 +105,7 @@ export default {
           subtitle: "Nusa Putra University 2023 - Present",
           tags: ["Growth", "Teamwork", "Projects"],
           desc: "Currently an active Informatics Engineering student, engaging in various academic and extracurricular projects to enhance my skills and knowledge in the field of technology.",
-          avatar: "../src/assets/NPU.jpg",
+          avatar: "/NPU.jpg",
           link: "https://nusaputra.ac.id/",
         },
         {
@@ -116,7 +116,7 @@ export default {
           subtitle: "Heewal Bureau",
           tags: ["Management", "Money Transfer"],
           desc: "Helped as an unofficial staff in managing daily operations of a money transfer branch, assisting customers with transactions and ensuring smooth service delivery.",
-          avatar: "../src/assets/heewal.jpeg",
+          avatar: "/heewal.jpeg",
           link: "https://www.facebook.com/heewalburea/",
         },
         {
@@ -127,7 +127,7 @@ export default {
           subtitle: "Self-Employed",
           tags: ["Web", "Data Entry", "Management"],
           desc: "Continuously working on self & freelance projects including simple contracts in UPWORK to enhance my practical skills and gain real-world experience.",
-          avatar: '../src/assets/self.jpeg',
+          avatar: '/self.jpeg',
           link: "https://github.com/FedericoMel20",
         },
         {
@@ -138,7 +138,7 @@ export default {
           subtitle: "Coursera - IBM",
           tags: ["Machine Learning Basics", "AI Fundamentals"],
           desc: "Gained a foundational understanding of artificial intelligence, including machine learning, deep learning, natural language processing, and real-world AI applications. Explored ethical considerations and the impact of AI across industries.",
-          avatar: "../src/assets/intro_ai.jpeg",
+          avatar: "/intro_ai.jpeg",
           link: "https://coursera.org/share/207663c8ce855f51d7b5225d3493b003",
         },
         {
@@ -149,7 +149,7 @@ export default {
           subtitle: "Coursera - IBM",
           tags: ["Python", "NumPY", "Pandas", "Data Science"],
           desc: "Learned Python fundamentals and applied them to data science and AI workflows, including data structures, control flow, functions, and libraries commonly used in analytics and machine learning.",
-          avatar: "../src/assets/python_ai.jpeg",
+          avatar: "/python_ai.jpeg",
           link: "https://coursera.org/share/c25a11e8455603f25fa2169b77571a3c",
         },
         {
@@ -160,7 +160,7 @@ export default {
           subtitle: "Sololearn",
           tags: ["HTML", "JavaScript", "CSS"],
           desc: "Learned the fundamentals of web development with a focus on HTML, CSS, and responsive design principles for building clean and functional websites.",
-          avatar: "../src/assets/web_dev.jpeg",
+          avatar: "/web_dev.jpeg",
           link: "https://www.sololearn.com/certificates/CC-EB5KFMAF",
         },
         {
@@ -171,7 +171,7 @@ export default {
           subtitle: "IBM - Coursera",
           tags: ["Generative AI", "Prompt Engineering"],
           desc: "Learned the fundamentals of generative AI and f  ocused on crafting precise prompts to enhance accuracy, control, and reliability in generative AI systems.",
-          avatar: "../src/assets/prompt_engineering.jpg",
+          avatar: "/prompt_engineering.jpg",
           link: "https://coursera.org/share/0475a990a2554fa735cedffb741a6681",
         },
         {
@@ -182,7 +182,7 @@ export default {
           subtitle: "Core Python Programming & Problem Solving",
           tags: ["Python", "Problem Solving", "OOP"],
           desc: "Developed a solid understanding of Python programming, including variables, control structures, functions, and practical problem-solving techniques through hands-on exercises.",
-          avatar: "../src/assets/python_dev.png",
+          avatar: "/python_dev.png",
           link: "https://www.sololearn.com/certificates/CC-WKIANOOI",
         },
         {
@@ -193,7 +193,7 @@ export default {
           subtitle: "Generative Models and Practical Applications",
           tags: ["Deep Learning", "ChatGPT", "Prototyping"],
           desc: "Gained foundational knowledge of generative AI concepts, models, and real-world applications, including how generative systems create text, images, and data-driven outputs.",
-          avatar: "../src/assets/gen_ai.jpeg",
+          avatar: "/gen_ai.jpeg",
           link: "https://coursera.org/share/290d1b8cffa71c8a52abc0856455e181",
         },
         {
@@ -204,7 +204,7 @@ export default {
           subtitle: "Data Structures & Logic in Python",
           tags: ["Python", "Data Structures", "OOP"],
           desc: "Strengthened intermediate Python skills, focusing on data structures, functions, modules, and logical problem-solving through hands-on coding exercises.",
-          avatar: "../src/assets/python_int.jpeg",
+          avatar: "/python_int.jpeg",
           link: "https://www.sololearn.com/certificates/CC-GU7G2K5S",
         },
         {
@@ -215,7 +215,7 @@ export default {
           subtitle: "International English Proficiency Assessment",
           tags: ["English", "Communication", "Academic Writing"],
           desc: "Certified academic English proficiency for global academic and professional contexts.",
-          avatar: "../src/assets/toefl.jpeg",
+          avatar: "/toefl.jpeg",
           link: "https://drive.google.com/file/d/1FEc69s7rmeJyfVilBxAdWRCb1JjcOzEM/view?usp=sharing",
         },
         {
@@ -226,7 +226,7 @@ export default {
           subtitle: "A Poetry Mobile App for Poem Lovers and Readers",
           tags: ["TypeScript", "React-Native", "Mobile App"],
           desc: "Loud Whispers is a mobile poetry application built and designed to provide a calm and immersive reading experience for poetry lovers. The app focuses on clean navigation, expressive typography, and a distraction-free interface to highlight written emotions and artistic expression.",
-          avatar: "../src/assets/logo.jpg",
+          avatar: "/logo.jpg",
           link: "https://github.com/FedericoMel20/PoetryApp.git",
         },
         {
@@ -237,7 +237,7 @@ export default {
           subtitle: "Interactive 3D Portfolio Website",
           tags: ["Vue.js", "CSS3D",],
           desc: "A highly interactive personal web portfolio built with Vue.js, featuring animated 3D interfaces, dynamic content transitions, and smooth user interactions. Immersive visual design and modern frontend techniques.",
-          avatar: "../src/assets/web_portfolio.png",
+          avatar: "/web_portfolio.png",
           link: "https://github.com/FedericoMel20/my-portfolio.git",
         },
         {
@@ -248,7 +248,7 @@ export default {
           subtitle: "Python OOP Mini Projects Collection",
           tags: ["Python", "OOP", "Mini Projects"],
           desc: "A collection of problem-solving mini projects built using Python's Object-Oriented Programming paradigm, showcasing encapsulation, inheritance, and polymorphism concepts.",
-          avatar: "../src/assets/OOP.png",
+          avatar: "/OOP.png",
           link: "https://github.com/FedericoMel20/Object_Oriented_Programming.git",
         },
         {
@@ -259,7 +259,7 @@ export default {
           subtitle: "GIS-Based Smart Farming System",
           tags: ["GIS", "HTML", "API"],
           desc: "A GIS-based smart farming system designed to support Gambian farmers by analyzing geospatial and environmental data to improve agricultural planning and decision-making. The project leverages geographic information systems to visualize land conditions, optimize resource usage, and promote sustainable farming practices. (Still in progress)",
-          avatar: "../src/assets/homebg.png",
+          avatar: "/homebg.png",
           link: "https://github.com/FedericoMel20/GIS.git",
         },
         {
@@ -270,7 +270,7 @@ export default {
           subtitle: "Global Policy & Diplomacy Conference",
           tags: ["Leadership", "Diplomacy", "International Relations"],
           desc: "Participated in an international Model OIC summit, engaging in policy discussions, diplomatic simulations, and collaborative problem-solving with students from diverse cultural backgrounds.",
-          avatar: "../src/assets/moic.jpeg",
+          avatar: "/moic.jpeg",
           link: "https://drive.google.com/file/d/1a5URdr8LKG1Qv79wenX7lYSuylvz82XX/view?usp=sharing",
         },
 
