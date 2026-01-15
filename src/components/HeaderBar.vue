@@ -9,26 +9,36 @@
       <span class="brand-text">MB</span>
     </div>
 
+    <!-- HAMBURGER MENU (MOBILE) -->
+    <button class="hamburger" @click="mobileMenuOpen = !mobileMenuOpen" :class="{ active: mobileMenuOpen }" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <!-- NAVIGATION -->
-    <nav class="nav">
+    <nav class="nav" :class="{ open: mobileMenuOpen }">
       <router-link 
         to="/" 
         class="nav-item" 
-        :class="{ active: isActive('/') }">
+        :class="{ active: isActive('/') }"
+        @click="mobileMenuOpen = false">
         HOME
       </router-link>
 
       <router-link 
         to="/profile" 
         class="nav-item" 
-        :class="{ active: isActive('/profile') }">
+        :class="{ active: isActive('/profile') }"
+        @click="mobileMenuOpen = false">
         PROFILE
       </router-link>
 
       <router-link 
         to="/portfolio" 
         class="nav-item" 
-        :class="{ active: isActive('/portfolio') }">
+        :class="{ active: isActive('/portfolio') }"
+        @click="mobileMenuOpen = false">
         PORTFOLIO
       </router-link>
     </nav>
@@ -67,6 +77,7 @@ export default {
   data() {
     return {
       showTalkModal: false,
+      mobileMenuOpen: false,
     }
   }
 }
@@ -83,6 +94,7 @@ export default {
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
+  position: relative;
 }
 
 /* LEFT SIDE BRAND */
@@ -118,6 +130,39 @@ export default {
   font-size: 1.65rem;
   color: var(--accent);
   letter-spacing: 1.3px;
+}
+
+/* HAMBURGER MENU (MOBILE) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  gap: 6px;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 /* NAVIGATION */
@@ -166,7 +211,7 @@ export default {
 
 /* --- LET'S TALK BUTTON (NEW) --- */
 .talk-btn {
-  padding: 15px 45px; /* wider */
+  padding: 15px 45px;
   border-radius: 10px;
   background: rgba(25,209,139,0.18);
   border: 1px solid rgba(25,209,139,0.35);
@@ -176,11 +221,137 @@ export default {
   text-decoration: none;
   transition: all .25s ease;
   box-shadow: 0 0 12px rgba(25,209,139,0.25);
+  white-space: nowrap;
 }
 
 .talk-btn:hover {
   transform: translateY(-2px) scale(1.03);
   background: rgba(25,209,139,0.26);
   box-shadow: 0 0 22px rgba(25,209,139,0.45);
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 18px 24px;
+  }
+
+  .brand-text {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    gap: 24px;
+  }
+
+  .nav-item {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+
+  .talk-btn {
+    padding: 12px 32px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 16px 18px;
+  }
+
+  .brand-text {
+    font-size: 1.3rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(7, 16, 24, 0.98), rgba(8, 20, 26, 0.98));
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    font-size: 1.3rem;
+    padding: 16px 24px;
+    border-radius: 12px;
+    text-align: center;
+    width: 75%;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item:hover {
+    background: rgba(25, 209, 139, 0.15);
+    transform: scale(1.03);
+  }
+
+  .nav-item.active {
+    background: linear-gradient(90deg, rgba(25,209,139,0.25), rgba(0,194,168,0.15));
+    box-shadow: 0 0 30px rgba(25,209,139,0.45);
+    transform: scale(1.05);
+  }
+
+  .nav-item::after {
+    display: none;
+  }
+
+  .header-right {
+    display: flex;
+  }
+
+  .talk-btn {
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 14px 14px;
+  }
+
+  .flag-circle {
+    width: 36px;
+    height: 36px;
+    border: 2px solid var(--accent);
+  }
+
+  .brand-text {
+    font-size: 1.1rem;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  .nav-item {
+    font-size: 1.1rem;
+    padding: 14px 20px;
+  }
+
+  .talk-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
 }
 </style>

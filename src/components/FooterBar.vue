@@ -100,11 +100,13 @@ export default {
   gap: 24px;
   align-items: start;
 }
+
 /* Name column */
 .name-col .name-block { margin-bottom: 12px; }
 .hero-name-footer { font-weight: 900; font-size: 1.35rem; color: #fff; line-height: 1; }
 .hero-name-footer .first-name { display:block; }
 .hero-name-footer .last-name { display:block; margin-left: 3ch; /* starts roughly at 4th char of first name */ }
+
 /* role text */
 .role { color: var(--accent); font-weight:700; margin-top:8px; font-size:0.95rem; }
 
@@ -144,11 +146,111 @@ export default {
 /* copyright */
 .copyright { margin-top:12px; color:var(--muted); font-size:0.85rem; }
 
-/* Responsive */
-@media (max-width:980px) {
-  .footer-inner { grid-template-columns: 1fr; gap:14px; }
-  .hero-name-footer { font-size:1.1rem }
-  .connect-item { padding:10px 6px; gap:8px; }
-  .connect-item .icon { width:36px; height:36px; }
+/* --- TABLET RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .connect-col {
+    grid-column: 1 / 2;
+  }
+
+  .sitemap-col {
+    grid-column: 2 / 3;
+  }
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 24px 16px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-name-footer {
+    font-size: 1.15rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+  }
+
+  .connect-col h4,
+  .sitemap-col h4 {
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+
+  .connect-item {
+    padding: 10px 8px;
+    gap: 10px;
+  }
+
+  .connect-item .icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .connect-item .icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .connect-item .label {
+    font-size: 0.95rem;
+  }
+
+  .sitemap-link {
+    padding: 8px 8px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 20px 12px;
+  }
+
+  .footer-inner {
+    gap: 18px;
+  }
+
+  .hero-name-footer {
+    font-size: 1rem;
+  }
+
+  .role {
+    font-size: 0.85rem;
+  }
+
+  .connect-list,
+  .sitemap-list {
+    gap: 8px;
+  }
+
+  .connect-item .icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .connect-item .icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .connect-item .label {
+    font-size: 0.9rem;
+  }
+
+  .connect-col h4,
+  .sitemap-col h4 {
+    font-size: 0.95rem;
+  }
 }
 </style>

@@ -512,20 +512,246 @@ export default {
   color: var(--muted);
 }
 
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
+/* ================= RESPONSIVE - KEEP LAYOUTS SIDE-BY-SIDE ================= */
+@media (max-width: 1024px) {
+  .profile-view {
+    padding: 60px 16px;
+    gap: 100px;
+  }
+
   .intro-boxes {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
+
   .arsenal-wrap {
-    grid-template-columns: 1fr;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
   }
+
+  .arsenal-photo {
+    min-width: 0;
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+  }
+
+  .intro-title {
+    font-size: 2.6rem;
+    line-height: 1.3;
+  }
+
   .tech-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100px 1fr 1fr;
+    padding: 18px 10px;
+  }
+
+  .period {
+    font-size: 0.85rem;
+  }
+
+  .context {
+    font-size: 0.95rem;
+  }
+
+  .activity {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-view {
+    padding: 40px 14px;
+    gap: 70px;
+  }
+
+  .intro-title {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .intro-boxes {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .intro-box {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .intro-box h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .intro-box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .arsenal-wrap {
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .arsenal-photo {
+    flex-shrink: 0;
+  }
+
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 16px;
+  }
+
+  .tech-box {
+    padding: 16px;
+  }
+
+  .tech-item {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .row {
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 10px;
+    padding: 14px 8px;
+  }
+
+  .row:hover {
+    transform: translateX(4px);
+  }
+
+  .period {
+    font-size: 0.75rem;
+  }
+
+  .context strong {
+    font-size: 0.9rem;
+  }
+
+  .context span {
+    font-size: 0.8rem;
+  }
+
+  .activity {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-view {
+    padding: 32px 12px;
+    gap: 50px;
+  }
+
+  .profile-section {
+    max-width: 100%;
+  }
+
+  .intro-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .intro-boxes {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .intro-box {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .intro-box h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .intro-box p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+
+  .arsenal-wrap {
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+  }
+
+  .photo-frame {
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+  }
+
+  .tech-box {
+    padding: 12px;
+  }
+
+  .tech-item {
+    padding: 8px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+  }
+
+  .tech-grid {
+    grid-template-columns: 2fr 2fr;
     gap: 8px;
+  }
+
+  .row {
+    grid-template-columns: 60px 1fr 1fr;
+    gap: 8px;
+    padding: 10px 6px;
+  }
+
+  .period {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .context strong {
+    font-size: 0.8rem;
+  }
+
+  .context span {
+    font-size: 0.75rem;
+  }
+
+  .activity {
+    font-size: 0.75rem;
+  }
+
+  .row:hover {
+    transform: none;
   }
 }
 </style>
